@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Todo from "./Todo";
 
 class ClassBased extends Component {
   constructor(props) {
@@ -89,7 +88,7 @@ function ListTodos(props) {
   const todos = props.todos;
   const listTodos = todos.map((todo) => {
     return (
-      <div className="border mt-5  text-left p-5 ">
+      <div className="border mt-4 mb-5  text-left p-5 ">
         <h3 key={todo.index}>{todo}</h3>
         <Button
           variant="info"
