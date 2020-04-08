@@ -31,13 +31,12 @@ class ClassBased extends Component {
     });
   }
 
-  editTodo = (value, index) => {
-    const todos = this.state.todos;
-    todos.map((todo) => {
-      if (todo.index === index) {
-        todo.value = value;
-      }
-    });
+  editTodo = (index) => {
+    const newvalue = [...this.state.todos];
+    const editInput = newvalue[index];
+    const editedInput = prompt(editInput);
+    newvalue.splice(index, 1, editedInput);
+    this.setState({ todos: newvalue });
   };
 
   handleSubmit = (event) => {
@@ -94,8 +93,8 @@ function ListTodos(props) {
           variant="info"
           value={todo}
           key={todo.index}
-          onClick={(event) => {
-            props.editTodo(event.target.value, todo.index);
+          onClick={() => {
+            props.editTodo(todo.index);
           }}
         >
           Edit
